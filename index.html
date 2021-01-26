@@ -6,6 +6,68 @@
     </head>
     <body>
         <script>
+             // function that makes the computer randomly return rock, paper or scissors
+             
+             function computerPlay() {
+                 let rps = ["Rock", "Paper", "Scissors"];
+                 let x = rps.sort(function(a, b) {return 0.5 - Math.random()}); 
+                 let y = x[0];
+                 return y;
+             }
+
+             // function that plays five rounds of rock-paper-scissors
+
+                
+             function playRound(x) {
+                alert("It's time for round " +  x);
+                let playerSelection = prompt("Rock, paper or scissors? Choose your weapon.").toLowerCase(); 
+                let computerSelection = computerPlay();
+
+                if (playerSelection == "rock" && computerSelection == "Rock") {
+                    alert("Your opponent chose... Rock!"); 
+                    alert("Rock ties with Rock! It's a stalemate.");
+                }
+                else if (playerSelection == "rock" && computerSelection == "Paper") {
+                    alert("Your opponent chose... Paper!"); 
+                    alert("Paper beats Rock! You lose.");
+                }
+                else if (playerSelection == "rock" && computerSelection == "Scissors") {
+                    alert("Your opponent chose... Scissors!"); 
+                    alert("Rock beats Scissors! You win.");
+                }  
+                else if (playerSelection == "paper" && computerSelection == "Rock") {
+                    alert("Your opponent chose... Rock!"); 
+                    alert("Paper beats Rock! You win.");
+                }  
+                else if (playerSelection == "paper" && computerSelection == "Paper") {
+                    alert("Your opponent chose... Paper!"); 
+                    alert("Paper ties with Paper! It's a stalemate.");
+                } 
+                else if (playerSelection == "paper" && computerSelection == "Scissors") {
+                    alert("Your opponent chose... Scissors!"); 
+                    alert("Scissors beats Paper! You lose.");
+                }  
+                else if (playerSelection == "scissors" && computerSelection == "Rock") {
+                    alert("Your opponent chose... Rock!"); 
+                    alert("Rock beats Scissors! You lose.");
+                } 
+                else if (playerSelection == "scissors" && computerSelection == "Paper") {
+                    alert("Your opponent chose... Paper!"); 
+                    alert("Scissors beats Paper! You win.");
+                } 
+                else if (playerSelection == "scissors" && computerSelection == "Scissors") {
+                    alert("Your opponent chose... Scissors!"); 
+                    alert("Scissors ties with Scissors! It's a stalemate.");
+                } 
+                else {
+                    alert("Error: Something has gone wrong.");
+                }
+            } 
+             playRound(1);
+             playRound(2);
+             playRound(3);
+             playRound(4);
+             playRound(5);
         </script>
     </body>
 </html>
