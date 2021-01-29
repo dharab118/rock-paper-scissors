@@ -6,7 +6,8 @@
     </head>
     <body>
         <script>
-             // function that makes the computer randomly return rock, paper or scissors
+            
+            // function that makes the computer randomly return rock, paper or scissors
              
              function computerPlay() {
                  let rps = ["Rock", "Paper", "Scissors"];
@@ -14,60 +15,112 @@
                  let y = x[0];
                  return y;
              }
+             
+            // functions that store the score of each round and return it 
 
-             // function that plays five rounds of rock-paper-scissors
+              let w = 0;
+              let q = 0;
 
-                
+              function yourScore() {
+                let z = ("Your Score: " + ++w + " \nComputer Score: " + q);
+                alert(z);
+              } 
+
+              function lossScore() {
+                let n = ("Your Score: " + w  + " \nComputer Score: " + ++q);
+                alert(n);
+              }
+
+              function staleMate() {
+                let s = ("Your Score: " + w + " \nComputer Score: " + q);
+                alert(s);
+              }
+
+            // function that returns winner or loser based on highest score
+               
+                function declareWinner() {
+                    if (w > q) {
+                        alert("You won the game!!! Congrats!");
+                    }
+                    else if (w < q) {
+                        alert("You lost the game! Booo")
+                    }
+                    else if (w == q) {
+                        alert("The game ends in a tie. How boring!")
+                    }
+                    else {
+                        alert("Error: Something went wrong")
+                    }
+                }
+             
+            // function that plays five rounds of rock-paper-scissors
+
              function playRound(x) {
-                alert("It's time for round " +  x);
+                alert("Round " +  x);
                 let playerSelection = prompt("Rock, paper or scissors? Choose your weapon.").toLowerCase(); 
                 let computerSelection = computerPlay();
 
                 if (playerSelection == "rock" && computerSelection == "Rock") {
-                    alert("Your opponent chose... Rock!"); 
+                    alert("The computer chose... Rock!"); 
                     alert("Rock ties with Rock! It's a stalemate.");
+                    staleMate(); 
                 }
                 else if (playerSelection == "rock" && computerSelection == "Paper") {
-                    alert("Your opponent chose... Paper!"); 
-                    alert("Paper beats Rock! You lose.");
+                    alert("The computer chose... Paper!"); 
+                    alert("Paper beats Rock! You lose this round.");
+                    lossScore();
                 }
                 else if (playerSelection == "rock" && computerSelection == "Scissors") {
-                    alert("Your opponent chose... Scissors!"); 
-                    alert("Rock beats Scissors! You win.");
+                    alert("The computer chose... Scissors!"); 
+                    alert("Rock beats Scissors! You win this round.");
+                    yourScore(); 
                 }  
                 else if (playerSelection == "paper" && computerSelection == "Rock") {
-                    alert("Your opponent chose... Rock!"); 
-                    alert("Paper beats Rock! You win.");
+                    alert("The computer chose... Rock!"); 
+                    alert("Paper beats Rock! You win this round.");
+                    yourScore();
                 }  
                 else if (playerSelection == "paper" && computerSelection == "Paper") {
-                    alert("Your opponent chose... Paper!"); 
+                    alert("The computer chose... Paper!"); 
                     alert("Paper ties with Paper! It's a stalemate.");
+                    staleMate();
                 } 
                 else if (playerSelection == "paper" && computerSelection == "Scissors") {
-                    alert("Your opponent chose... Scissors!"); 
-                    alert("Scissors beats Paper! You lose.");
+                    alert("The computer chose... Scissors!"); 
+                    alert("Scissors beats Paper! You lose this round.");
+                    lossScore();
                 }  
                 else if (playerSelection == "scissors" && computerSelection == "Rock") {
-                    alert("Your opponent chose... Rock!"); 
-                    alert("Rock beats Scissors! You lose.");
+                    alert("The computer chose... Rock!"); 
+                    alert("Rock beats Scissors! You lose this round.");
+                    lossScore();
                 } 
                 else if (playerSelection == "scissors" && computerSelection == "Paper") {
-                    alert("Your opponent chose... Paper!"); 
-                    alert("Scissors beats Paper! You win.");
+                    alert("The computer chose... Paper!"); 
+                    alert("Scissors beats Paper! You win this round.");
+                    yourScore();
                 } 
                 else if (playerSelection == "scissors" && computerSelection == "Scissors") {
-                    alert("Your opponent chose... Scissors!"); 
+                    alert("The computer chose... Scissors!"); 
                     alert("Scissors ties with Scissors! It's a stalemate.");
-                } 
+                    staleMate();                } 
                 else {
                     alert("Error: Something has gone wrong.");
                 }
-            } 
-             playRound(1);
-             playRound(2);
-             playRound(3);
-             playRound(4);
-             playRound(5);
+            }
+            alert("Ready to play \"Rock, Paper, Scissors?\"")
+            alert(
+            `The scoreboard will keep track of the points. Whoever gets the most points in five rounds wins! Ties give no points to both parties.
+
+            Your score: 0
+            Computer score: 0`);
+                playRound(1);
+                playRound(2);
+                playRound(3);
+                playRound(4);
+                playRound(5);
+                declareWinner();
+            
         </script>
     </body>
 </html>
